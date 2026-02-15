@@ -4,21 +4,6 @@ using namespace std;
 #define ll long long
 #define endl "\n"
 
-int dfs(vector<vector<int>>& heights,int i,int j, int row,int col,vector<vector<bool>>& vis){
-    if(i == -1 || j == -1 || i == row || j == col || vis[i][j] == true){
-         return INT_MAX;
-    }
-    vis[i][j] = true;
-    int w1 = dfs(heights,i+1,j,row,col,vis);
-    int w2 = dfs(heights,i-1,j,row,col,vis);
-    int w3 = dfs(heights,i,j+1,row,col,vis);
-    int w4 = dfs(heights,i,j-1,row,col,vis);
-
-    vis[i][j] = false;
-    return min(w1,min(w2,min(w3,w4)));
-
-
-}
 int minimumEffortPath(vector<vector<int>>& heights) {
         int n = heights.size();
         int m = heights[0].size();
@@ -67,8 +52,17 @@ int minimumEffortPath(vector<vector<int>>& heights) {
         return dist[n-1][m-1];
 }
 
+
 void solve() {
-    
+    vector<vector<int>>heights;
+    int r,c;
+    cin>>r>>c;
+    for(int i= 0;i < r;i++){
+        for(int j= 0;j < c;j++){
+            cin>>heights[i][j];
+        }
+    }
+    minimumEffortPath(heights);
    
 }
 
