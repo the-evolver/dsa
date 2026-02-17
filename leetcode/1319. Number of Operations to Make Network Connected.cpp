@@ -68,11 +68,46 @@ using namespace std;
 // }
 
 int makeConnected(int n, vector<vector<int>>& connections) {
+
+        // num of disconnected nikal lo and compare with cables hogya kaam
+         if(connections.size() < n - 1) return -1;
+         vector<vector<int>> adj(n,vector<int>());
+         for(auto it : connections){
+              int u = it[0];
+              int v = it[1];
+
+              adj[u].push_back(v);
+              adj[v].push_back(u);
+         }
+
+         vector<bool> vis(n,false);
+         int components = 0;
+         for(int i = 0 ; i < n ; i++){
+               if(vis[i] == false){
+                   components++;
+                   dfs(i,vis,n,adj);
+               }
+         }
+
+         return components-1;
+
         
-}
+    }
+
+    void dfs(int currNode,vector<bool>& vis,int n,vector<vector<int>>& adj){
+           if(vis[currNode]) return;
+
+           vis[currNode] = true;
+           for(auto it : adj[currNode]){
+                 dfs(it,vis,n,adj);
+           }
+
+
+    }
+
 
 void solve() {
-    
+   // makeConnected()
    
 }
 
@@ -96,10 +131,3 @@ int main() {
 }
 
 
-/*
-    0 - 1
-    0-2
-    0-3
-    1-2
-    1-3
-*/
