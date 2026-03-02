@@ -120,8 +120,6 @@ int main() {
 #endif
 
     int t = 1;
-    // cin >> t;
-
     while (t--) {
         solve();
     }
@@ -130,10 +128,3 @@ int main() {
 }
 
 
-/*
-    0 - 1
-    0-2
-    0-3
-    1-2
-    1-3
-*/
