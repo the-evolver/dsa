@@ -6,12 +6,10 @@ public:
 
 
         vector<int> dp(n+1,INT_MAX);
-        for(int i = 0 ; i < listPs.size() && listPs[i] <= n;i++){
-            dp[listPs[i]] = 1;
-        }
+        dp[0] = 0;
 
-        for(int i = 2 ; i <= n ; i++){
-             if(dp[i] == 1) continue;
+        for(int i = 1 ; i <= n ; i++){
+           
              for(int j = 0 ; j < listPs.size() && listPs[j] <= i ; j++){
                   dp[i] = min(dp[i],1 + dp[i-listPs[j]]);
              }
