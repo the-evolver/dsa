@@ -12,10 +12,9 @@ public:
                     mp[s[left]]--;
                     left++;
              }
-             
              curr = right - left +1;
              maxi = max(curr,maxi);
-            right++;
+             right++;
 
         }
         return maxi;
