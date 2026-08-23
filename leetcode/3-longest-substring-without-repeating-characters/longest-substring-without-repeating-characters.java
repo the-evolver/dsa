@@ -1,3 +1,8 @@
+/*
+constraints = 10^5 .. so we need to solve in less than o(n2)
+and two pointer way sounds good here .. use map to manage count and use two pointer to iterate the string and caluculate the solution
+tc => o(n) sc =o(n)
+*/
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         Map<Character,Integer> mp  =  new HashMap<>();
