@@ -1,4 +1,7 @@
-class Solution {
+// bf => every player has 3 options so bruteforce way is iterate through the array and at each point pick the all three availaible options for the current player
+ /// then at the end using the sum difference we can get who wins, priortise alice as he runs , means if in any case alice wins then alice will win... 
+
+ class Solution {
     public String stoneGameIII(int[] stoneValue) {
         // kisi bhi index i pe mai do broad ways me aa skta hun, idhar chance alice ke pass ho ya bob ke pass ho 
          int n = stoneValue.length;
@@ -23,4 +26,3 @@ class Solution {
         
     }
 }
-
