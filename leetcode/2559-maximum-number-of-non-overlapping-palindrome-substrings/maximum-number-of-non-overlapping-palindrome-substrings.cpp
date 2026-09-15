@@ -8,8 +8,6 @@ public:
         for (int i = 0; i < n; i++) {
 
             dp[i + 1] = max(dp[i + 1], dp[i]);
-
-            // Odd length palindromes
             for (int l = i, r = i; l >= 0 && r < n && s[l] == s[r]; l--, r++) {
 
                 int len = r - l + 1;
@@ -18,8 +16,6 @@ public:
                     dp[r + 1] = max(dp[r + 1], dp[l] + 1);
                 }
             }
-
-            // Even length palindromes
             for (int l = i, r = i + 1; l >= 0 && r < n && s[l] == s[r]; l--, r++) {
 
                 int len = r - l + 1;
