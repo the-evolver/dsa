@@ -2,17 +2,13 @@ class Solution {
     public int subarraySum(int[] nums, int k) {
 
         Map<Integer,Integer> mp = new HashMap<>();
-
-        int currSum = 0;
-        int ans = 0;
         mp.put(0,1);
-        for(int x : nums){
-              currSum += x;
-              if(mp.containsKey(currSum - k)){
-                 ans += mp.get(currSum-k);
-              }
-
-              mp.merge(currSum,1,Integer::sum);
+        int ans = 0;
+        int rsum = 0;
+        for(int i : nums){
+            rsum += i;
+            ans += mp.getOrDefault(rsum-k,0);
+            mp.merge(rsum,1,Integer::sum);
         }
         return ans;
         
