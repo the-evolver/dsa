@@ -18,12 +18,9 @@ class Solution {
 
         while(qu.size() > 0){
               int top = qu.poll();
-              System.out.println("top "+ top);
               cnt++;
               for(int x : dependents.get(top)){
-                  System.out.println(x +" "+ inDegree[x]);
                   inDegree[x]--;
-                  System.out.println(x +" "+ inDegree[x]);
                   if(inDegree[x] == 0) qu.offer(x);
                    
               }
