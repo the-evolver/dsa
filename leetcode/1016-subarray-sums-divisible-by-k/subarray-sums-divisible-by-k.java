@@ -3,16 +3,14 @@ class Solution {
 
         Map<Integer,Integer> mp = new HashMap<>();
         mp.put(0,1);
-        int sum = 0 , ans = 0,rem;
+        int currSum = 0,currRem,ans=0;
+        for(int i : nums){
+            currSum += i;
+            currRem = ((currSum % k ) + k ) % k;
+            ans += mp.getOrDefault(currRem,0);
+            mp.merge(currRem,1,Integer::sum);
 
-        for(int x : nums ){
-             sum += x;
-             rem = ((sum % k) + k ) % k;
-
-             ans += mp.getOrDefault(rem,0);
-             mp.merge(rem,1,Integer::sum);
         }
         return ans;
-        
     }
 }
